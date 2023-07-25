@@ -71,7 +71,7 @@ const NavDarkCMZ = ({ onClose }) => {
               <Text style={styles.text}>5</Text>
             </View>
           </Pressable>
-          <View style={[styles.menu1, styles.menuLayout1]}>
+          <Pressable style={[styles.menu1, styles.menuLayout1]} onPress={() => navigation.navigate("PlanDevenement")}>
             <View style={[styles.menuChild, styles.menuChildPosition]} />
             <View
               style={[
@@ -88,8 +88,8 @@ const NavDarkCMZ = ({ onClose }) => {
                 style={[styles.planCmz, styles.cmzTypo]}
                 >{`Plan de l’évenement `}</Text>
             </View>
-          </View>
-          <View style={[styles.menu2, styles.menuLayout1]}>
+          </Pressable>
+          <Pressable style={[styles.menu2, styles.menuLayout1]} onPress={() => navigation.navigate("PlanningCmz")}>
             <View style={[styles.menuChild, styles.menuChildPosition]} />
             <View
               style={[
@@ -106,11 +106,15 @@ const NavDarkCMZ = ({ onClose }) => {
                 Planning Activité
               </Text>
             </View>
-          </View>
+          </Pressable>
           <View style={[styles.inMenuNotification1, styles.menuSpaceBlock]}>
             <Text style={styles.text}>5</Text>
           </View>
-          <View style={[styles.menu3, styles.menuLayout1]}>
+          <Pressable
+            style={[styles.menu3, styles.menuLayout1]}
+            onPress={() => navigation.navigate("StandsCMZ")}
+            >
+          
             <View style={[styles.menuChild, styles.menuChildPosition]} />
             <View
               style={[
@@ -125,7 +129,8 @@ const NavDarkCMZ = ({ onClose }) => {
                 />
               <Text style={[styles.planCmz, styles.cmzTypo]}>Stands</Text>
             </View>
-          </View>
+          
+            </Pressable>
           <Pressable
             style={[styles.menu4, styles.menuLayout1]}
             onPress={() => navigation.navigate("Activity")}
