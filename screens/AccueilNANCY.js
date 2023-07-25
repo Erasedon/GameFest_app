@@ -295,7 +295,7 @@ const styles = StyleSheet.create({
     left: -1,
   },
   gamefest: {
-    textDecoration: "underline",
+    textDecorationLine:"underline",
   },
   gamefestToutContainer: {
     top: 1317,

@@ -272,7 +272,7 @@ const styles = StyleSheet.create({
     height: 65,
   },
   gamefest: {
-    textDecoration: "underline",
+    textDecorationLine:"underline",
   },
   gamefestToutContainer: {
     top: 1288,
