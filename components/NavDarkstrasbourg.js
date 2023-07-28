@@ -2,6 +2,7 @@ import * as React from "react";
 import { View, StyleSheet, Text, Pressable, Linking ,ScrollView,} from "react-native";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
+import  screenHeight from "../components/Dimensions.js";
 import { FontFamily, FontSize, Color, Padding, Border } from "../GlobalStyles";
 
 const NavDarkstrasbourg = ({ onClose }) => {
@@ -60,7 +61,7 @@ const NavDarkstrasbourg = ({ onClose }) => {
                   styles.gameFestStrasbourgPosition,
                 ]}
                 onPress={() => navigation.navigate("AccueilStrasbourg")}
-                >
+                > 
                 <Image
                   style={[styles.iconsdarkhome, styles.iconoutlineplusLayout]}
                   contentFit="cover"
@@ -879,7 +880,7 @@ const styles = StyleSheet.create({
   },
   navdarkstrasbourg: {
     backgroundColor: Color.gray_200,
-    height: 844,
+    height: screenHeight,
     width: 280,
   },
 });
