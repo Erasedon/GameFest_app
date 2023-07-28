@@ -1,7 +1,9 @@
-import * as React from "react";
+
+import React, {useState, useEffect} from 'react';
 import { Image } from "expo-image";
-import { StyleSheet, View, Pressable,ScrollView,
+import { StyleSheet, View, Pressable,ScrollView,Vibration,
 } from "react-native";
+import  screenHeight from "../components/Dimensions.js";
 import { useNavigation } from "@react-navigation/native";
 import { Color } from "../GlobalStyles";
 
@@ -9,16 +11,16 @@ const IPhone14Accueil = () => {
   const navigation = useNavigation();
 
   return (
-  <ScrollView>
-    <View style={styles.iphone14Accueil}>
-      <Image
+    <ScrollView>
+      <View style={styles.iphone14Accueil}>
+    <Image
         style={styles.fond1Icon}
         contentFit="cover"
         source={require("../assets/fond-1-3x.png")}
         />
       <Pressable
         style={[styles.gameFestCmz, styles.gameLayout]}
-        onPress={() => navigation.navigate("AccueilCMZ")}
+        onPress={() =>  Vibration.vibrate() & navigation.navigate("AccueilCMZ")}
         >
         <Image
           style={[styles.fondCharlevilleTel1Icon, styles.logoIconLayout]}
@@ -34,7 +36,7 @@ const IPhone14Accueil = () => {
       </Pressable>
       <Pressable
         style={[styles.gameFestStrasbourg, styles.gameLayout]}
-        onPress={() => navigation.navigate("AccueilStrasbourg")}
+        onPress={() => Vibration.vibrate() & navigation.navigate("AccueilStrasbourg")}
         >
         <Image
           style={[styles.fondCharlevilleTel1Icon, styles.logoIconLayout]}
@@ -55,7 +57,7 @@ const IPhone14Accueil = () => {
       </Pressable>
       <Pressable
         style={[styles.gameFestNancy, styles.gameLayout]}
-        onPress={() => navigation.navigate("AccueilNANCY")}
+        onPress={() => Vibration.vibrate() & navigation.navigate("AccueilNANCY")}
         >
         <Image
           style={[styles.fondCharlevilleTel1Icon, styles.logoIconLayout]}
@@ -76,7 +78,8 @@ const IPhone14Accueil = () => {
 
 const styles = StyleSheet.create({
   gameLayout: {
-    width: 354,
+    marginTop:"10%",
+    width: "92%",
     position: "absolute",
   },
   logoIconLayout: {
@@ -95,11 +98,8 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   fond1Icon: {
-    top: 0,
-    left: 0,
-    width: 1903,
-    height: 929,
-    position: "absolute",
+    height:"100%",
+    position: "relative" 
   },
   fondCharlevilleTel1Icon: {
     height: "100%",
@@ -192,11 +192,12 @@ const styles = StyleSheet.create({
     height: 246,
   },
   iphone14Accueil: {
-    backgroundColor: Color.white,
+    backgroundColor: Color.black,
     flex: 1,
-    height: 844,
     overflow: "hidden",
     width: "100%",
+    height:screenHeight,
+    position: "relative",
   },
 });
 

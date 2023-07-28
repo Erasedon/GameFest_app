@@ -2,14 +2,16 @@ import * as React from "react";
 import { View, StyleSheet, Text, Pressable, Linking ,ScrollView,} from "react-native";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
+import  screenHeight from "../components/Dimensions.js";
 import { FontFamily, FontSize, Color, Padding, Border } from "../GlobalStyles";
 
 const NavDarkCMZ = ({ onClose }) => {
   const navigation = useNavigation();
 
   return (
-    <ScrollView>
-    <View style={[styles.navdarkcmz, styles.iconLayout]}>
+  
+    <View style={[styles.navdarkcmz, styles.iconLayout]}>  
+
       <View style={[styles.buttonsParent, styles.parentLayout]}>
         <View style={[styles.buttons, styles.directFlexBox]}>
           <Image
@@ -379,8 +381,8 @@ const NavDarkCMZ = ({ onClose }) => {
             />
         </Pressable>
       </View>
+
     </View>
-  </ScrollView>
   );
 };
 
@@ -391,7 +393,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   parentLayout: {
-    height: 304,
+   height: 304,
     width: 240,
   },
   directFlexBox: {
@@ -828,8 +830,9 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   navdarkcmz: {
+    top: 0,
     backgroundColor: Color.gray_200,
-    height: 844,
+    height: screenHeight,
     width: 280,
   },
 });
