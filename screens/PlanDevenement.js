@@ -17,6 +17,31 @@ const PlanDevenement = () => {
     setMenuAlt2OutlineIconVisible(false);
   }, []);
 
+  {/* appel d'une photo */}
+  fetch('http://10.0.2.2:80/api/media/' + 128).then((response) => response.json()).then((json) => {
+    console.log(json);
+    return json;
+  }).catch((error) => {
+    console.error(error);
+  });
+
+  // fetch('http://10.0.2.2:80/api/media', {
+  //   method: 'POST',
+  //   headers: {
+  //     Accept: 'application/ld+json',
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify({
+  //     nom: "Image Map",
+  //     url: "../assets/map2.png",
+  //     positionnement: "carte_PlanE",
+  //     mediactivity: null,
+  //     mediastand: null
+  //   })
+  // });
+
+
+
   return (
     <>
   <ScrollView>
