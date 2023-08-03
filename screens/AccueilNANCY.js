@@ -295,7 +295,7 @@ const styles = StyleSheet.create({
     left: -1,
   },
   gamefest: {
-    textDecoration: "underline",
+    textDecorationLine:"underline",
   },
   gamefestToutContainer: {
     top: 1317,
@@ -351,7 +351,7 @@ const styles = StyleSheet.create({
   },
   menuAlt2OutlineIconOverlay: {
     flex: 1,
-    alignItems: "center",
+    alignItems: "flex-start",
     justifyContent: "center",
     backgroundColor: "rgba(113, 113, 113, 0.3)",
   },

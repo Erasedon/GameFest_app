@@ -272,7 +272,7 @@ const styles = StyleSheet.create({
     height: 65,
   },
   gamefest: {
-    textDecoration: "underline",
+    textDecorationLine:"underline",
   },
   gamefestToutContainer: {
     top: 1288,
@@ -319,7 +319,7 @@ const styles = StyleSheet.create({
   },
   vectorIconOverlay: {
     flex: 1,
-    alignItems: "center",
+    alignItems: "flex-start",
     justifyContent: "center",
     backgroundColor: "rgba(113, 113, 113, 0.3)",
   },

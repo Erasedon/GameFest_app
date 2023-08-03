@@ -2,6 +2,7 @@ import * as React from "react";
 import { View, StyleSheet, Text, Pressable, Linking ,ScrollView,} from "react-native";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
+import  screenHeight from "../components/Dimensions.js";
 import { FontFamily, FontSize, Color, Padding, Border } from "../GlobalStyles";
 
 const NavDarknancy = ({ onClose }) => {
@@ -835,7 +836,7 @@ const styles = StyleSheet.create({
   },
   navdarknancy: {
     backgroundColor: Color.gray_200,
-    height: 844,
+    height: screenHeight,
     width: 280,
   },
 });

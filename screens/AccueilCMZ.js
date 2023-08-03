@@ -10,6 +10,9 @@ import {
   ScrollView,
 } from "react-native";
 import NavDarkCMZ from "../components/NavDarkCMZ";
+import  {screenWidth, screenHeight} from "../components/Dimensions.js";
+import {horizontalScale, verticalScale , moderateScale}  from "../components/test";
+
 import { Color, FontSize, FontFamily, Border } from "../GlobalStyles";
 
 const AccueilCMZ = () => {
@@ -140,7 +143,7 @@ const AccueilCMZ = () => {
 
 const styles = StyleSheet.create({
   accueilLayout: {
-    width: 390,
+    width: horizontalScale(390),
     position: "absolute",
   },
   billetPosition: {
@@ -165,20 +168,20 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   accueilCmzInnerLayout: {
-    width: 392,
-    position: "absolute",
+    width: horizontalScale(392),
+    position: "relative",
   },
   accueilCmzChild: {
     top: 0,
-    height: 87,
+    height: verticalScale(87),
     left: 1,
-    width: 390,
+    width: horizontalScale(390),
   },
   fichier21: {
     top: 6,
     left: 291,
-    width: 74,
-    height: 81,
+    width: horizontalScale(74),
+    height: verticalScale(81),
     display: "none",
     position: "absolute",
   },
@@ -196,7 +199,7 @@ const styles = StyleSheet.create({
     top: 111,
     left: 105,
     backgroundColor: Color.customLevel3BackgroundModalsDropdownsBackground,
-    width: 172,
+    width: "-55.9%",
     height: 258,
     position: "absolute",
   },
@@ -223,7 +226,7 @@ const styles = StyleSheet.create({
   },
   billet: {
     top: 293,
-    width: 367,
+    width: horizontalScale(367),
     height: 379,
   },
   buttonBilletChild: {
@@ -250,7 +253,7 @@ const styles = StyleSheet.create({
   buttonBillet: {
     top: 699,
     left: 36,
-    width: 322,
+    width: horizontalScale(322),
     height: 35,
     position: "absolute",
   },
@@ -272,10 +275,10 @@ const styles = StyleSheet.create({
   },
   header: {
     top: 61,
-    width: 389,
+    width: horizontalScale(389),
     height: 277,
     left: 0,
-    position: "absolute",
+    position: "relative",
   },
   sliderWidgetIcon: {
     top: 783,
@@ -293,7 +296,7 @@ const styles = StyleSheet.create({
     left: 76,
     fontSize: FontSize.size_10xl,
     color: Color.whitesmoke,
-    width: 241,
+    width: horizontalScale(241),
     height: 30,
     fontFamily: FontFamily.notoSansMalayalamUISemibold,
     fontWeight: "600",
@@ -304,21 +307,21 @@ const styles = StyleSheet.create({
     top: 1179,
     left: 202,
     borderRadius: Border.br_7xs,
-    width: 173,
+    width: horizontalScale(173),
     height: 53,
     position: "absolute",
   },
   image4Icon: {
     top: 1168,
     left: 12,
-    width: 125,
+    width: horizontalScale(125),
     height: 70,
     position: "absolute",
   },
   image5Icon: {
     top: 1259,
     left: 114,
-    width: 163,
+    width: horizontalScale(163),
     height: 74,
     position: "absolute",
   },
@@ -334,7 +337,7 @@ const styles = StyleSheet.create({
   gamefestToutContainer: {
     top: 1346,
     color: Color.lightsteelblue_100,
-    width: 381,
+    width: horizontalScale(381),
     fontFamily: FontFamily.notoSansMalayalamUISemibold,
     fontWeight: "600",
     textAlign: "center",
@@ -344,7 +347,7 @@ const styles = StyleSheet.create({
   },
   menuAlt2OutlineIconOverlay: {
     flex: 1,
-    alignItems: "center",
+    alignItems: "flex-start",
     justifyContent: "center",
     backgroundColor: "rgba(113, 113, 113, 0.3)",
   },
@@ -362,7 +365,7 @@ const styles = StyleSheet.create({
   },
   menualt2outline: {
     top: 17,
-    width: 32,
+    width: horizontalScale(32),
     height: 32,
   },
   accueilCmz: {

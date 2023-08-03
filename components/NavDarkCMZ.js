@@ -2,14 +2,16 @@ import * as React from "react";
 import { View, StyleSheet, Text, Pressable, Linking ,ScrollView,} from "react-native";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
+import  screenHeight from "../components/Dimensions.js";
 import { FontFamily, FontSize, Color, Padding, Border } from "../GlobalStyles";
 
 const NavDarkCMZ = ({ onClose }) => {
   const navigation = useNavigation();
 
   return (
-    <ScrollView>
-    <View style={[styles.navdarkcmz, styles.iconLayout]}>
+  
+    <View style={[styles.navdarkcmz, styles.iconLayout]}>  
+
       <View style={[styles.buttonsParent, styles.parentLayout]}>
         <View style={[styles.buttons, styles.directFlexBox]}>
           <Image
@@ -71,7 +73,7 @@ const NavDarkCMZ = ({ onClose }) => {
               <Text style={styles.text}>5</Text>
             </View>
           </Pressable>
-          <View style={[styles.menu1, styles.menuLayout1]}>
+          <Pressable style={[styles.menu1, styles.menuLayout1]} onPress={() => navigation.navigate("PlanDevenement")}>
             <View style={[styles.menuChild, styles.menuChildPosition]} />
             <View
               style={[
@@ -88,8 +90,8 @@ const NavDarkCMZ = ({ onClose }) => {
                 style={[styles.planCmz, styles.cmzTypo]}
                 >{`Plan de l’évenement `}</Text>
             </View>
-          </View>
-          <View style={[styles.menu2, styles.menuLayout1]}>
+          </Pressable>
+          <Pressable style={[styles.menu2, styles.menuLayout1]} onPress={() => navigation.navigate("PlanningCmz")}>
             <View style={[styles.menuChild, styles.menuChildPosition]} />
             <View
               style={[
@@ -106,11 +108,15 @@ const NavDarkCMZ = ({ onClose }) => {
                 Planning Activité
               </Text>
             </View>
-          </View>
+          </Pressable>
           <View style={[styles.inMenuNotification1, styles.menuSpaceBlock]}>
             <Text style={styles.text}>5</Text>
           </View>
-          <View style={[styles.menu3, styles.menuLayout1]}>
+          <Pressable
+            style={[styles.menu3, styles.menuLayout1]}
+            onPress={() => navigation.navigate("StandsCMZ")}
+            >
+          
             <View style={[styles.menuChild, styles.menuChildPosition]} />
             <View
               style={[
@@ -125,7 +131,8 @@ const NavDarkCMZ = ({ onClose }) => {
                 />
               <Text style={[styles.planCmz, styles.cmzTypo]}>Stands</Text>
             </View>
-          </View>
+          
+            </Pressable>
           <Pressable
             style={[styles.menu4, styles.menuLayout1]}
             onPress={() => navigation.navigate("Activity")}
@@ -374,8 +381,8 @@ const NavDarkCMZ = ({ onClose }) => {
             />
         </Pressable>
       </View>
+
     </View>
-  </ScrollView>
   );
 };
 
@@ -386,7 +393,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   parentLayout: {
-    height: 304,
+   height: 304,
     width: 240,
   },
   directFlexBox: {
@@ -823,8 +830,9 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   navdarkcmz: {
+    top: 0,
     backgroundColor: Color.gray_200,
-    height: 844,
+    height: screenHeight,
     width: 280,
   },
 });
