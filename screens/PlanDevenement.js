@@ -18,12 +18,12 @@ const PlanDevenement = () => {
   }, []);
 
   {/* appel d'une photo */}
-  fetch('http://10.0.2.2:80/api/media/' + 128).then((response) => response.json()).then((json) => {
-    console.log(json);
-    return json;
-  }).catch((error) => {
-    console.error(error);
-  });
+  // fetch('http://10.0.2.2:80/api/media/' + 128).then((response) => response.json()).then((json) => {
+  //   console.log(json);
+  //   return json;
+  // }).catch((error) => {
+  //   console.error(error);
+  // });
 
   // fetch('http://10.0.2.2:80/api/media', {
   //   method: 'POST',
@@ -42,16 +42,37 @@ const PlanDevenement = () => {
 
 
 
+/*
+fetch('http://10.0.2.2:80/api/media/' + 128).then((response) => response.json()).then((json) => {
+          
+             console.log(json?.url)
+             return  json.url;
+           }).catch((error) => {
+             console.error(error);
+           })
+           */
+
+
   return (
     <>
   <ScrollView>
     <View style={styles.planDevenement}>
         <View style={styles.gamefestCmz} />
-        <Image
-          style={styles.mapIcon}
-          contentFit="cover"
-          source={require("../assets/map2.png")}
-        />
+        
+        < Image
+        source = {
+          fetch('http://10.0.2.2:80/api/media/' + 128).then((response) => response.json()).then((json) => {
+            console.log(json);
+            return json;
+          }).catch((error) => {
+            console.error(error);
+          })
+        }
+        style = {
+          styles.mapIcon
+        }
+        contentFit = "cover"
+      /> 
         <View style={styles.buttondarkenParent}>
           <View style={[styles.buttondarken, styles.buttondarkenFlexBox]}>
             <Image
@@ -251,7 +272,7 @@ const styles = StyleSheet.create({
     borderRadius: Border.br_3xs,
     maxWidth: "100%",
     maxHeight: "100%",
-    overflow: "hidden",
+    overflow: "visible",
     position: "absolute",
   },
   iconoutlinedotsCircleHoriz: {
@@ -368,3 +389,50 @@ const styles = StyleSheet.create({
 });
 
 export default PlanDevenement;
+
+
+  // fetch('http://10.0.2.2:80/api/media', {
+  //   method: 'POST',
+  //   headers: {
+  //     Accept: 'application/ld+json',
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify({
+  //     nom: "TEST",
+  //     url: "TEST",
+  //     positionnement: "TEST",
+  //     mediactivity: null,
+  //     mediastand: null
+  //   })
+  // });
+
+{/*
+  fetch('http://10.0.2.2:80/api/media/' + 123).then((response) => response.json()).then((json) => {
+    // console.log(json);
+    return json;
+  }).catch((error) => {
+    // console.error(error);
+  });*/}
+
+  //get
+  // fetch('http://10.0.2.2:80/api/media/' + 123).then((response) => response.json()).then((json) => {
+  //   // console.log(json);
+  //   return json;
+  // }).catch((error) => {
+  //   // console.error(error);
+  // });
+        {/* <Image
+  source={ 
+    fetch('https://localhost//api/media/{id}', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: '1'
+      })
+    })
+    
+  }
+  style={styles.mapIcon}/> */}
