@@ -1,9 +1,39 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback,  useEffect } from "react";
 import { StyleSheet, View, Text, Pressable, Modal ,ScrollView,
 } from "react-native";
 import { Image } from "expo-image";
 import NavDarkCMZ from "../components/NavDarkCMZ";
 import { Padding, Border, Color, FontFamily, FontSize } from "../GlobalStyles";
+import axios from 'axios';
+
+const Dataurl = () => {
+  const baseUrl = 'http://10.0.2.2:80';
+  const [imageData, setImageData] = useState(null);
+
+  useEffect(() => {
+    // Faire la requête GET à l'API avec Axios
+    axios.get(`${baseUrl}/api/media/128`)
+      .then(response => {
+       
+          // Récupérer les données y compris l'URL de l'image depuis la réponse
+          const data = response.data;
+
+          // Mettre à jour l'état avec les données
+          setImageData(data);
+        
+      })
+      .catch(error => {
+        console.error('Erreur lors de la requête API :', error);
+      });
+  }, []);
+ 
+  // Renvoyer l'URL de l'image
+  const relativePath = imageData ? "http://127.0.0.1:8081/" + imageData.url : "";
+  // const basePath = Platform.OS === 'android' ? 'file://' : '';
+  const absolutePath = relativePath;
+
+  return absolutePath;
+};
 
 const PlanDevenement = () => {
   const [menuAlt2OutlineIconVisible, setMenuAlt2OutlineIconVisible] =
@@ -40,39 +70,21 @@ const PlanDevenement = () => {
   //   })
   // });
 
+  const urlstring = Dataurl();
 
-
-/*
-fetch('http://10.0.2.2:80/api/media/' + 128).then((response) => response.json()).then((json) => {
-          
-             console.log(json?.url)
-             return  json.url;
-           }).catch((error) => {
-             console.error(error);
-           })
-           */
-
-
-  return (
-    <>
+            return (
+              <>
   <ScrollView>
     <View style={styles.planDevenement}>
         <View style={styles.gamefestCmz} />
-        
-        < Image
-        source = {
-          fetch('http://10.0.2.2:80/api/media/' + 128).then((response) => response.json()).then((json) => {
-            console.log(json);
-            return json;
-          }).catch((error) => {
-            console.error(error);
-          })
-        }
-        style = {
-          styles.mapIcon
-        }
-        contentFit = "cover"
-      /> 
+        { (  
+           <Image
+          source={{ uri : urlstring }}// Utilisez un objet avec l'attribut uri
+          style={styles.mapIcon}
+          contentFit="cover" // Utilisez resizeMode au lieu de contentFit
+          />  
+              )}
+    
         <View style={styles.buttondarkenParent}>
           <View style={[styles.buttondarken, styles.buttondarkenFlexBox]}>
             <Image
@@ -195,6 +207,7 @@ fetch('http://10.0.2.2:80/api/media/' + 128).then((response) => response.json())
             />
           </View>
         </View>
+        
         <View style={styles.menualt2outlineParent}>
           <Pressable
             style={styles.menualt2outline}
@@ -206,8 +219,10 @@ fetch('http://10.0.2.2:80/api/media/' + 128).then((response) => response.json())
               source={require("../assets/menualt2outline2.png")}
             />
           </Pressable>
+          
           <Text style={styles.planDevenement1}>{`plan d’evenement
 `}</Text>
+    
         </View>
         <View style={styles.planDevenementChild} />
       </View>
@@ -225,6 +240,9 @@ fetch('http://10.0.2.2:80/api/media/' + 128).then((response) => response.json())
           <NavDarkCMZ onClose={closeMenuAlt2OutlineIcon} />
         </View>
       </Modal>
+        {/* <Text  style={styles.planDevenement1} >
+        {`${imageData.url} ${imageData.nom}`}
+      </Text> */}
    </ScrollView>
    </>
   );
