@@ -4,7 +4,7 @@ import { StyleSheet, View, Text, Pressable, Modal ,ScrollView,
 import { Image } from "expo-image";
 import NavDarkstrasbourg from "../components/NavDarkstrasbourg";
 import { Padding, Border, Color, FontFamily, FontSize } from "../GlobalStyles";
-
+import ImageComponent from "../components/ImageComponent";
 const PlanDevenementStrasbourg = () => {
   const [menuAlt2OutlineIconVisible, setMenuAlt2OutlineIconVisible] =
     useState(false);
@@ -17,16 +17,14 @@ const PlanDevenementStrasbourg = () => {
     setMenuAlt2OutlineIconVisible(false);
   }, []);
 
+  const isLocal = __DEV__; // Move this line to where it's being used
+
   return (
     <>
   <ScrollView>
     <View style={styles.planDevenementStrasbourg}>
         <View style={styles.gamefestCmz} />
-        <Image
-          style={styles.mapIcon}
-          contentFit="cover"
-          source={require("../assets/map1.png")}
-        />
+        <ImageComponent imageId={128} isLocal={isLocal} styles={styles.mapIcon} />
         <View style={styles.buttondarkenParent}>
           <View style={[styles.buttondarken, styles.buttondarkenFlexBox]}>
             <Image

@@ -3,37 +3,10 @@ import { StyleSheet, View, Text, Pressable, Modal ,ScrollView,
 } from "react-native";
 import { Image } from "expo-image";
 import NavDarkCMZ from "../components/NavDarkCMZ";
+import ImageComponent from "../components/ImageComponent";
 import { Padding, Border, Color, FontFamily, FontSize } from "../GlobalStyles";
 import axios from 'axios';
 
-const Dataurl = () => {
-  const baseUrl = 'http://10.0.2.2:80';
-  const [imageData, setImageData] = useState(null);
-
-  useEffect(() => {
-    // Faire la requête GET à l'API avec Axios
-    axios.get(`${baseUrl}/api/media/128`)
-      .then(response => {
-       
-          // Récupérer les données y compris l'URL de l'image depuis la réponse
-          const data = response.data;
-
-          // Mettre à jour l'état avec les données
-          setImageData(data);
-        
-      })
-      .catch(error => {
-        console.error('Erreur lors de la requête API :', error);
-      });
-  }, []);
- 
-  // Renvoyer l'URL de l'image
-  const relativePath = imageData ? "http://127.0.0.1:8081/" + imageData.url : "";
-  // const basePath = Platform.OS === 'android' ? 'file://' : '';
-  const absolutePath = relativePath;
-
-  return absolutePath;
-};
 
 const PlanDevenement = () => {
   const [menuAlt2OutlineIconVisible, setMenuAlt2OutlineIconVisible] =
@@ -46,44 +19,16 @@ const PlanDevenement = () => {
   const closeMenuAlt2OutlineIcon = useCallback(() => {
     setMenuAlt2OutlineIconVisible(false);
   }, []);
-
-  {/* appel d'une photo */}
-  // fetch('http://10.0.2.2:80/api/media/' + 128).then((response) => response.json()).then((json) => {
-  //   console.log(json);
-  //   return json;
-  // }).catch((error) => {
-  //   console.error(error);
-  // });
-
-  // fetch('http://10.0.2.2:80/api/media', {
-  //   method: 'POST',
-  //   headers: {
-  //     Accept: 'application/ld+json',
-  //     'Content-Type': 'application/json'
-  //   },
-  //   body: JSON.stringify({
-  //     nom: "Image Map",
-  //     url: "../assets/map2.png",
-  //     positionnement: "carte_PlanE",
-  //     mediactivity: null,
-  //     mediastand: null
-  //   })
-  // });
-
-  const urlstring = Dataurl();
+  
+  const isLocal = __DEV__; // Move this line to where it's being used
 
             return (
               <>
   <ScrollView>
     <View style={styles.planDevenement}>
         <View style={styles.gamefestCmz} />
-        { (  
-           <Image
-          source={{ uri : urlstring }}// Utilisez un objet avec l'attribut uri
-          style={styles.mapIcon}
-          contentFit="cover" // Utilisez resizeMode au lieu de contentFit
-          />  
-              )}
+        
+        <ImageComponent imageId={128} isLocal={isLocal} styles={styles.mapIcon} />
     
         <View style={styles.buttondarkenParent}>
           <View style={[styles.buttondarken, styles.buttondarkenFlexBox]}>
