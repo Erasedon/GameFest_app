@@ -1,9 +1,12 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback,  useEffect } from "react";
 import { StyleSheet, View, Text, Pressable, Modal ,ScrollView,
 } from "react-native";
 import { Image } from "expo-image";
 import NavDarkCMZ from "../components/NavDarkCMZ";
+import ImageComponent from "../components/ImageComponent";
 import { Padding, Border, Color, FontFamily, FontSize } from "../GlobalStyles";
+import axios from 'axios';
+
 
 const PlanDevenement = () => {
   const [menuAlt2OutlineIconVisible, setMenuAlt2OutlineIconVisible] =
@@ -16,42 +19,17 @@ const PlanDevenement = () => {
   const closeMenuAlt2OutlineIcon = useCallback(() => {
     setMenuAlt2OutlineIconVisible(false);
   }, []);
+  
+  const isLocal = __DEV__; // Move this line to where it's being used
 
-  {/* appel d'une photo */}
-  fetch('http://10.0.2.2:80/api/media/' + 128).then((response) => response.json()).then((json) => {
-    console.log(json);
-    return json;
-  }).catch((error) => {
-    console.error(error);
-  });
-
-  // fetch('http://10.0.2.2:80/api/media', {
-  //   method: 'POST',
-  //   headers: {
-  //     Accept: 'application/ld+json',
-  //     'Content-Type': 'application/json'
-  //   },
-  //   body: JSON.stringify({
-  //     nom: "Image Map",
-  //     url: "../assets/map2.png",
-  //     positionnement: "carte_PlanE",
-  //     mediactivity: null,
-  //     mediastand: null
-  //   })
-  // });
-
-
-
-  return (
-    <>
+            return (
+              <>
   <ScrollView>
     <View style={styles.planDevenement}>
         <View style={styles.gamefestCmz} />
-        <Image
-          style={styles.mapIcon}
-          contentFit="cover"
-          source={require("../assets/map2.png")}
-        />
+        
+        <ImageComponent imageId={128} isLocal={isLocal} styles={styles.mapIcon} />
+    
         <View style={styles.buttondarkenParent}>
           <View style={[styles.buttondarken, styles.buttondarkenFlexBox]}>
             <Image
@@ -174,6 +152,7 @@ const PlanDevenement = () => {
             />
           </View>
         </View>
+        
         <View style={styles.menualt2outlineParent}>
           <Pressable
             style={styles.menualt2outline}
@@ -185,8 +164,10 @@ const PlanDevenement = () => {
               source={require("../assets/menualt2outline2.png")}
             />
           </Pressable>
+          
           <Text style={styles.planDevenement1}>{`plan d’evenement
 `}</Text>
+    
         </View>
         <View style={styles.planDevenementChild} />
       </View>
@@ -204,6 +185,9 @@ const PlanDevenement = () => {
           <NavDarkCMZ onClose={closeMenuAlt2OutlineIcon} />
         </View>
       </Modal>
+        {/* <Text  style={styles.planDevenement1} >
+        {`${imageData.url} ${imageData.nom}`}
+      </Text> */}
    </ScrollView>
    </>
   );
@@ -251,7 +235,7 @@ const styles = StyleSheet.create({
     borderRadius: Border.br_3xs,
     maxWidth: "100%",
     maxHeight: "100%",
-    overflow: "hidden",
+    overflow: "visible",
     position: "absolute",
   },
   iconoutlinedotsCircleHoriz: {
@@ -368,3 +352,50 @@ const styles = StyleSheet.create({
 });
 
 export default PlanDevenement;
+
+
+  // fetch('http://10.0.2.2:80/api/media', {
+  //   method: 'POST',
+  //   headers: {
+  //     Accept: 'application/ld+json',
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify({
+  //     nom: "TEST",
+  //     url: "TEST",
+  //     positionnement: "TEST",
+  //     mediactivity: null,
+  //     mediastand: null
+  //   })
+  // });
+
+{/*
+  fetch('http://10.0.2.2:80/api/media/' + 123).then((response) => response.json()).then((json) => {
+    // console.log(json);
+    return json;
+  }).catch((error) => {
+    // console.error(error);
+  });*/}
+
+  //get
+  // fetch('http://10.0.2.2:80/api/media/' + 123).then((response) => response.json()).then((json) => {
+  //   // console.log(json);
+  //   return json;
+  // }).catch((error) => {
+  //   // console.error(error);
+  // });
+        {/* <Image
+  source={ 
+    fetch('https://localhost//api/media/{id}', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: '1'
+      })
+    })
+    
+  }
+  style={styles.mapIcon}/> */}

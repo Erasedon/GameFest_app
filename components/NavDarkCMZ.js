@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, StyleSheet, Text, Pressable, Linking ,ScrollView,} from "react-native";
+import { View, StyleSheet, Text, Pressable, Linking ,ScrollView} from "react-native";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
 import  screenHeight from "../components/Dimensions.js";
