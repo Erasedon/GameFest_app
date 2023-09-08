@@ -167,7 +167,7 @@ const NavDarknancy = ({ onClose }) => {
         <View>
           <Pressable
             style={[styles.menu5, styles.menu5Layout]}
-            onPress={() => navigation.navigate("IPhone14Accueil")}
+            onPress={() => navigation.navigate("AccueilPrincipal")}
             >
             <View style={[styles.frameView, styles.frameViewSpaceBlock]}>
               <View style={styles.directParent}>
