@@ -12,20 +12,20 @@ const ImageComponent = ({ imageId, isLocal ,styles }) => {
       .get(`${baseUrl}/api/media/${imageId}`)
       .then((response) => {
         const data = response.data;
-    
+        
         setImageData(data);
       })
       .catch((error) => {
         console.error("Erreur lors de la requête API :", error);
       });
-  }, [imageId]);
+    }, [imageId]);
+    
 
   if (!imageData) {
-      console.log("vide test")
     return null;
   }
   const imageUrl = isLocal
-  ? `http://127.0.1.1:8081/${imageData.url}`
+  ? `http://127.0.0.1:8081/${imageData.url}`
   : `${imageData.url}`;
   
 
