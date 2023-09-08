@@ -28,11 +28,6 @@ const AccueilNANCY = () => {
     <>
   <ScrollView>
     <View style={styles.accueilNancy}>
-        <Image
-          style={styles.accueilNancyChild}
-          contentFit="cover"
-          source={require("../assets/rectangle-21.png")}
-        />
         <View style={styles.billet}>
           <View style={styles.billetChild} />
           <View style={styles.billetItem} />
