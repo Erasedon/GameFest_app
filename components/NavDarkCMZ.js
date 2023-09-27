@@ -9,7 +9,7 @@ const NavDarkCMZ = ({ onClose }) => {
   const navigation = useNavigation();
 
   return (
-  
+
     <View style={[styles.navdarkcmz, styles.iconLayout]}>  
 
       <View style={[styles.buttonsParent, styles.parentLayout]}>

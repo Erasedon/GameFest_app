@@ -11,7 +11,7 @@ const StandListComponent = ({ isLocal ,standcolorregion }) => {
     const baseUrl = isLocal ? "http://10.0.2.2:80" : "http://api-en-ligne.com";
    
     axios
-    .get(`${baseUrl}/api/stands`) // Vous n'avez pas besoin de charger les médias séparément
+    .get(`${baseUrl}/api/stands`) // requete des stands
     .then((standResponse) => {
       const standData = standResponse.data["hydra:member"];
       
@@ -20,7 +20,6 @@ const StandListComponent = ({ isLocal ,standcolorregion }) => {
         stand.medias.length > 0
       
       );
-  console.log(standsWithMedia);
      
       // Mettez à jour l'état des stands avec les données transformées
       setStands(standsWithMedia);
@@ -50,7 +49,7 @@ return (
         
         if (standcolorregion === 'StyleCMZ') {        
         return ( 
-          <View style={[styles.card, styles.cardLayout]}> 
+          <View key={stand["@id"]}  style={[styles.card, styles.cardLayout]}> 
         <View style={[styles.cardHeader, styles.cardSpaceBlock1]}>
           <View style={[styles.likes, styles.parentFlexBox1]}>
             <Text style={styles.text}>

@@ -1,8 +1,6 @@
-
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { Image } from "expo-image";
-import { StyleSheet, View, Pressable,ScrollView,Vibration,
-} from "react-native";
+import { StyleSheet, View, Pressable,ScrollView,Vibration} from "react-native";
 import  screenHeight from "../components/Dimensions.js";
 import { useNavigation } from "@react-navigation/native";
 import { Color } from "../GlobalStyles.js";
@@ -48,12 +46,7 @@ const AccueilPrincipal = () => {
           contentFit="cover"
           source={require("../assets/logo-strasbourg-1.png")}
           />
-        <View
-          style={[
-            styles.gameFestStrasbourgChild,
-            styles.logoStrasbourg1IconLayout,
-          ]}
-          />
+        <View style={[styles.gameFestStrasbourgChild, styles.logoStrasbourg1IconLayout,]}/>
       </Pressable>
       <Pressable
         style={[styles.gameFestNancy, styles.gameLayout]}
