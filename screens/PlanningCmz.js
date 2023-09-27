@@ -306,7 +306,7 @@ const styles = StyleSheet.create({
     maxHeight: "100%",
     top: 0,
     left: 0,
-    overflow: "hidden",
+   
   },
   designNewUx: {
     width: 293,
@@ -362,10 +362,10 @@ const styles = StyleSheet.create({
   },
   path2Parent: {
     top: 0,
-    left: 0,
-    overflow: "hidden",
-    height: 95,
-    width: 357,
+    left: 0,   
+     overflow: "hidden",
+    height: 100,
+    width: 367,
   },
   planningCmzInner: {
     top: 203,

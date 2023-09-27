@@ -2,7 +2,7 @@ const Stack = createNativeStackNavigator();
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import IPhone14Accueil from "./screens/IPhone14Accueil";
+import AccueilPrincipal from "./screens/AccueilPrincipal";
 import PlanningNancy from "./screens/PlanningNancy";
 import PlanDevenementNanncy from "./screens/PlanDevenementNanncy";
 import StandsNANCY from "./screens/StandsNANCY";
@@ -47,8 +47,8 @@ const App = () => {
         {hideSplashScreen ? (
           <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen
-              name="IPhone14Accueil"
-              component={IPhone14Accueil}
+              name="AccueilPrincipal"
+              component={AccueilPrincipal}
               options={{ headerShown: false }}
             />
             <Stack.Screen

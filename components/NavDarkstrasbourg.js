@@ -172,7 +172,7 @@ const NavDarkstrasbourg = ({ onClose }) => {
       </View>
       <Pressable
         style={styles.frameParent}
-        onPress={() => navigation.navigate("IPhone14Accueil")}
+        onPress={() => navigation.navigate("AccueilPrincipal")}
         >
         <View>
           <View style={[styles.menu5, styles.menuLayout2]}>

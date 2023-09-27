@@ -1,18 +1,16 @@
-
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { Image } from "expo-image";
-import { StyleSheet, View, Pressable,ScrollView,Vibration,
-} from "react-native";
+import { StyleSheet, View, Pressable,ScrollView,Vibration} from "react-native";
 import  screenHeight from "../components/Dimensions.js";
 import { useNavigation } from "@react-navigation/native";
-import { Color } from "../GlobalStyles";
+import { Color } from "../GlobalStyles.js";
 
-const IPhone14Accueil = () => {
+const AccueilPrincipal = () => {
   const navigation = useNavigation();
 
   return (
     <ScrollView>
-      <View style={styles.iphone14Accueil}>
+      <View style={styles.AccueilPrincipal}>
     <Image
         style={styles.fond1Icon}
         contentFit="cover"
@@ -48,12 +46,7 @@ const IPhone14Accueil = () => {
           contentFit="cover"
           source={require("../assets/logo-strasbourg-1.png")}
           />
-        <View
-          style={[
-            styles.gameFestStrasbourgChild,
-            styles.logoStrasbourg1IconLayout,
-          ]}
-          />
+        <View style={[styles.gameFestStrasbourgChild, styles.logoStrasbourg1IconLayout,]}/>
       </Pressable>
       <Pressable
         style={[styles.gameFestNancy, styles.gameLayout]}
@@ -191,7 +184,7 @@ const styles = StyleSheet.create({
     left: 20,
     height: 246,
   },
-  iphone14Accueil: {
+  AccueilPrincipal: {
     backgroundColor: Color.black,
     flex: 1,
     overflow: "hidden",
@@ -201,4 +194,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default IPhone14Accueil;
+export default AccueilPrincipal;
